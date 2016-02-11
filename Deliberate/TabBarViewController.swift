@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.hidden = true
-        self.selectedIndex = 2
+        self.selectedIndex = 0
 
     }
 

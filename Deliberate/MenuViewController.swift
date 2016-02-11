@@ -28,7 +28,12 @@ class MenuViewController: UIViewController {
     }
     
     
+
 //MARK: button click
+    @IBAction func dismissBtnDidClick(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     @IBAction func currentBtnDidClick(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

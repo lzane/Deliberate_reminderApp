@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2F066C231C6B769100B21596 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C211C6B769100B21596 /* HeaderViewController.swift */; };
 		2F066C241C6B769100B21596 /* HeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F066C221C6B769100B21596 /* HeaderViewController.xib */; };
+		2F066C381C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C311C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.m */; };
+		2F066C391C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C331C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.m */; };
+		2F066C3A1C6C33CA00B21596 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C351C6C33CA00B21596 /* TPKeyboardAvoidingTableView.m */; };
+		2F066C3B1C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C371C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		2F066C3D1C6C3C7900B21596 /* mainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C3C1C6C3C7900B21596 /* mainTableViewController.swift */; };
+		2F066C3F1C6C3D2000B21596 /* mainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C3E1C6C3D2000B21596 /* mainTableViewCell.swift */; };
 		2F4069EC1C6AE55000BEA49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4069EB1C6AE55000BEA49D /* AppDelegate.swift */; };
 		2F4069F11C6AE55000BEA49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4069EF1C6AE55000BEA49D /* Main.storyboard */; };
 		2F4069F61C6AE55000BEA49D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4069F41C6AE55000BEA49D /* LaunchScreen.storyboard */; };
@@ -45,6 +51,16 @@
 /* Begin PBXFileReference section */
 		2F066C211C6B769100B21596 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		2F066C221C6B769100B21596 /* HeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewController.xib; sourceTree = "<group>"; };
+		2F066C301C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		2F066C311C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		2F066C321C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		2F066C331C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		2F066C341C6C33CA00B21596 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		2F066C351C6C33CA00B21596 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		2F066C361C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		2F066C371C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		2F066C3C1C6C3C7900B21596 /* mainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTableViewController.swift; sourceTree = "<group>"; };
+		2F066C3E1C6C3D2000B21596 /* mainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTableViewCell.swift; sourceTree = "<group>"; };
 		2F4069E81C6AE55000BEA49D /* Deliberate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deliberate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F4069EB1C6AE55000BEA49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F4069F01C6AE55000BEA49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +114,7 @@
 		2F066C281C6B889900B21596 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2F066C3E1C6C3D2000B21596 /* mainTableViewCell.swift */,
 				2F4069EF1C6AE55000BEA49D /* Main.storyboard */,
 				2F4069F41C6AE55000BEA49D /* LaunchScreen.storyboard */,
 				2F066C221C6B769100B21596 /* HeaderViewController.xib */,
@@ -116,6 +133,7 @@
 				2F4639A51C6B509200A59EBB /* SiViewController.swift */,
 				2F4639A71C6B50AC00A59EBB /* RenViewController.swift */,
 				2F066C211C6B769100B21596 /* HeaderViewController.swift */,
+				2F066C3C1C6C3C7900B21596 /* mainTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -130,11 +148,27 @@
 		2F066C2B1C6B88B900B21596 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				2F066C2F1C6C33CA00B21596 /* TPKeyboardAvoiding */,
 				2F4069F71C6AE55000BEA49D /* Info.plist */,
 				2F4639911C6B15D800A59EBB /* Assets.xcassets */,
 				2F4069EB1C6AE55000BEA49D /* AppDelegate.swift */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		2F066C2F1C6C33CA00B21596 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				2F066C301C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.h */,
+				2F066C311C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.m */,
+				2F066C321C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.h */,
+				2F066C331C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.m */,
+				2F066C341C6C33CA00B21596 /* TPKeyboardAvoidingTableView.h */,
+				2F066C351C6C33CA00B21596 /* TPKeyboardAvoidingTableView.m */,
+				2F066C361C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				2F066C371C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		2F4069DF1C6AE55000BEA49D = {
@@ -390,13 +424,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F066C381C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2F4639A01C6B4AED00A59EBB /* TabBarViewController.swift in Sources */,
+				2F066C3D1C6C3C7900B21596 /* mainTableViewController.swift in Sources */,
 				2F4639A41C6B508400A59EBB /* SiPreviewViewController.swift in Sources */,
+				2F066C3B1C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2F46399C1C6B2E8E00A59EBB /* MenuViewController.swift in Sources */,
 				2F4069EC1C6AE55000BEA49D /* AppDelegate.swift in Sources */,
+				2F066C391C6C33CA00B21596 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2F4639A61C6B509200A59EBB /* SiViewController.swift in Sources */,
 				2F4639991C6B250800A59EBB /* MainViewController.swift in Sources */,
 				2F4639A81C6B50AC00A59EBB /* RenViewController.swift in Sources */,
+				2F066C3A1C6C33CA00B21596 /* TPKeyboardAvoidingTableView.m in Sources */,
+				2F066C3F1C6C3D2000B21596 /* mainTableViewCell.swift in Sources */,
 				2F4639A21C6B505600A59EBB /* HistoryViewController.swift in Sources */,
 				2F066C231C6B769100B21596 /* HeaderViewController.swift in Sources */,
 			);
