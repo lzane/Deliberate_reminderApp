@@ -15,7 +15,7 @@ class CoreDataController: NSObject {
         let appDel  = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDel.managedObjectContext
 
-        var item    = NSEntityDescription.insertNewObjectForEntityForName(entity, inManagedObjectContext: context)
+        let item    = NSEntityDescription.insertNewObjectForEntityForName(entity, inManagedObjectContext: context)
         
 //        var content :      String!
 //        var isFinished :   Bool!

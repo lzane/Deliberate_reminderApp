@@ -21,17 +21,17 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQm-jW-SPL" customClass="SpringButton" customModule="Spring">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="79" id="A4t-no-8Cq"/>
+                                <constraint firstAttribute="width" constant="79" id="Jw0-Qw-5GT"/>
                             </constraints>
                             <state key="normal" backgroundImage="dragon"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="A4t-no-8Cq"/>
+                                    <exclude reference="Jw0-Qw-5GT"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="A4t-no-8Cq"/>
+                                    <include reference="Jw0-Qw-5GT"/>
                                 </mask>
                             </variation>
                             <connections>
@@ -40,11 +40,13 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="CQm-jW-SPL" firstAttribute="top" secondItem="6Jj-QU-iLc" secondAttribute="top" constant="35" id="1SX-Bu-YKp"/>
+                        <constraint firstAttribute="bottom" secondItem="CQm-jW-SPL" secondAttribute="bottom" constant="18" id="2EG-R8-JfR"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="154" id="NKm-k6-tqA"/>
-                        <constraint firstItem="CQm-jW-SPL" firstAttribute="centerX" secondItem="6Jj-QU-iLc" secondAttribute="centerX" id="NT8-wJ-bFu"/>
-                        <constraint firstItem="CQm-jW-SPL" firstAttribute="top" secondItem="6Jj-QU-iLc" secondAttribute="top" constant="55" id="QBL-Ny-CTr"/>
-                        <constraint firstAttribute="bottom" secondItem="CQm-jW-SPL" secondAttribute="bottom" constant="18" id="RYi-qh-6bD"/>
-                        <constraint firstAttribute="height" constant="154" id="ZfA-qZ-MjZ"/>
+                        <constraint firstAttribute="height" constant="154" id="ZfA-qZ-MjZ">
+                            <variation key="heightClass=regular-widthClass=compact" constant="134"/>
+                        </constraint>
+                        <constraint firstItem="CQm-jW-SPL" firstAttribute="centerX" secondItem="6Jj-QU-iLc" secondAttribute="centerX" id="odT-kK-1VL"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
@@ -53,9 +55,9 @@
                         <mask key="constraints">
                             <exclude reference="NKm-k6-tqA"/>
                             <exclude reference="ZfA-qZ-MjZ"/>
-                            <exclude reference="NT8-wJ-bFu"/>
-                            <exclude reference="QBL-Ny-CTr"/>
-                            <exclude reference="RYi-qh-6bD"/>
+                            <exclude reference="1SX-Bu-YKp"/>
+                            <exclude reference="2EG-R8-JfR"/>
+                            <exclude reference="odT-kK-1VL"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -65,36 +67,64 @@
                         <mask key="constraints">
                             <exclude reference="NKm-k6-tqA"/>
                             <include reference="ZfA-qZ-MjZ"/>
-                            <include reference="NT8-wJ-bFu"/>
-                            <include reference="QBL-Ny-CTr"/>
-                            <include reference="RYi-qh-6bD"/>
+                            <include reference="1SX-Bu-YKp"/>
+                            <include reference="2EG-R8-JfR"/>
+                            <include reference="odT-kK-1VL"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtA-lj-Ari">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.80770552158355713" green="0.80759871006011963" blue="0.82406789064407349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="w3d-p5-IJc"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="w3d-p5-IJc"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="w3d-p5-IJc"/>
                         </mask>
                     </variation>
                 </view>
             </subviews>
             <constraints>
+                <constraint firstItem="vtA-lj-Ari" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6F5-4h-Gli"/>
                 <constraint firstItem="6Jj-QU-iLc" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bi6-Ct-ne8"/>
+                <constraint firstItem="vtA-lj-Ari" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="135" id="cu8-mm-YfI"/>
                 <constraint firstItem="6Jj-QU-iLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gYk-jT-iWS"/>
                 <constraint firstItem="6Jj-QU-iLc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kLL-Lr-MPF"/>
+                <constraint firstAttribute="trailing" secondItem="vtA-lj-Ari" secondAttribute="trailing" id="lsU-1B-yO3"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="6Jj-QU-iLc"/>
+                    <exclude reference="vtA-lj-Ari"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="bi6-Ct-ne8"/>
                     <exclude reference="gYk-jT-iWS"/>
                     <exclude reference="kLL-Lr-MPF"/>
+                    <exclude reference="6F5-4h-Gli"/>
+                    <exclude reference="cu8-mm-YfI"/>
+                    <exclude reference="lsU-1B-yO3"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="6Jj-QU-iLc"/>
+                    <include reference="vtA-lj-Ari"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="bi6-Ct-ne8"/>
                     <include reference="gYk-jT-iWS"/>
                     <include reference="kLL-Lr-MPF"/>
+                    <include reference="6F5-4h-Gli"/>
+                    <include reference="cu8-mm-YfI"/>
+                    <include reference="lsU-1B-yO3"/>
                 </mask>
             </variation>
         </view>
