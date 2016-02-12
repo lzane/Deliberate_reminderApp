@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="List" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFinished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isImportant" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isInThought" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="timeCreat" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timeFinish" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="List" positionX="-54" positionY="-9" width="128" height="135"/>
+    </elements>
+</model>

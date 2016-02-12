@@ -20,18 +20,31 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQm-jW-SPL" customClass="SpringButton" customModule="Spring">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="79" id="A4t-no-8Cq"/>
+                            </constraints>
                             <state key="normal" backgroundImage="dragon"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="A4t-no-8Cq"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="A4t-no-8Cq"/>
+                                </mask>
+                            </variation>
                             <connections>
                                 <action selector="menuBtnDidClick:" destination="-1" eventType="touchUpInside" id="cqD-5q-VTz"/>
                             </connections>
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="CQm-jW-SPL" secondAttribute="bottom" constant="18" id="0iG-L2-qu5"/>
-                        <constraint firstItem="CQm-jW-SPL" firstAttribute="centerX" secondItem="6Jj-QU-iLc" secondAttribute="centerX" id="4Hh-ZX-vqV"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="154" id="NKm-k6-tqA"/>
-                        <constraint firstAttribute="height" constant="154" id="aOi-dx-gWl"/>
-                        <constraint firstItem="CQm-jW-SPL" firstAttribute="top" secondItem="6Jj-QU-iLc" secondAttribute="top" constant="55" id="axW-Ss-WhJ"/>
+                        <constraint firstItem="CQm-jW-SPL" firstAttribute="centerX" secondItem="6Jj-QU-iLc" secondAttribute="centerX" id="NT8-wJ-bFu"/>
+                        <constraint firstItem="CQm-jW-SPL" firstAttribute="top" secondItem="6Jj-QU-iLc" secondAttribute="top" constant="55" id="QBL-Ny-CTr"/>
+                        <constraint firstAttribute="bottom" secondItem="CQm-jW-SPL" secondAttribute="bottom" constant="18" id="RYi-qh-6bD"/>
+                        <constraint firstAttribute="height" constant="154" id="ZfA-qZ-MjZ"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
@@ -39,10 +52,10 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="NKm-k6-tqA"/>
-                            <exclude reference="aOi-dx-gWl"/>
-                            <exclude reference="0iG-L2-qu5"/>
-                            <exclude reference="4Hh-ZX-vqV"/>
-                            <exclude reference="axW-Ss-WhJ"/>
+                            <exclude reference="ZfA-qZ-MjZ"/>
+                            <exclude reference="NT8-wJ-bFu"/>
+                            <exclude reference="QBL-Ny-CTr"/>
+                            <exclude reference="RYi-qh-6bD"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -50,28 +63,28 @@
                             <include reference="CQm-jW-SPL"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="NKm-k6-tqA"/>
-                            <include reference="aOi-dx-gWl"/>
-                            <include reference="0iG-L2-qu5"/>
-                            <include reference="4Hh-ZX-vqV"/>
-                            <include reference="axW-Ss-WhJ"/>
+                            <exclude reference="NKm-k6-tqA"/>
+                            <include reference="ZfA-qZ-MjZ"/>
+                            <include reference="NT8-wJ-bFu"/>
+                            <include reference="QBL-Ny-CTr"/>
+                            <include reference="RYi-qh-6bD"/>
                         </mask>
                     </variation>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="6Jj-QU-iLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8fw-1r-IlQ"/>
-                <constraint firstAttribute="trailing" secondItem="6Jj-QU-iLc" secondAttribute="trailing" id="vs4-Qy-Vuu"/>
-                <constraint firstItem="6Jj-QU-iLc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yD0-c1-6Wq"/>
+                <constraint firstItem="6Jj-QU-iLc" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bi6-Ct-ne8"/>
+                <constraint firstItem="6Jj-QU-iLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gYk-jT-iWS"/>
+                <constraint firstItem="6Jj-QU-iLc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kLL-Lr-MPF"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="6Jj-QU-iLc"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="8fw-1r-IlQ"/>
-                    <exclude reference="vs4-Qy-Vuu"/>
-                    <exclude reference="yD0-c1-6Wq"/>
+                    <exclude reference="bi6-Ct-ne8"/>
+                    <exclude reference="gYk-jT-iWS"/>
+                    <exclude reference="kLL-Lr-MPF"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -79,9 +92,9 @@
                     <include reference="6Jj-QU-iLc"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="8fw-1r-IlQ"/>
-                    <include reference="vs4-Qy-Vuu"/>
-                    <include reference="yD0-c1-6Wq"/>
+                    <include reference="bi6-Ct-ne8"/>
+                    <include reference="gYk-jT-iWS"/>
+                    <include reference="kLL-Lr-MPF"/>
                 </mask>
             </variation>
         </view>

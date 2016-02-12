@@ -15,6 +15,9 @@
 		2F066C3B1C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C371C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		2F066C3D1C6C3C7900B21596 /* mainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C3C1C6C3C7900B21596 /* mainTableViewController.swift */; };
 		2F066C3F1C6C3D2000B21596 /* mainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C3E1C6C3D2000B21596 /* mainTableViewCell.swift */; };
+		2F066C821C6DAD1B00B21596 /* ReminderList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F066C801C6DAD1B00B21596 /* ReminderList.xcdatamodeld */; };
+		2F066CC11C6DB31E00B21596 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066CC01C6DB31E00B21596 /* Reminder.swift */; };
+		2F066CC31C6DB70400B21596 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F066CC21C6DB70400B21596 /* CoreDataController.swift */; };
 		2F4069EC1C6AE55000BEA49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4069EB1C6AE55000BEA49D /* AppDelegate.swift */; };
 		2F4069F11C6AE55000BEA49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4069EF1C6AE55000BEA49D /* Main.storyboard */; };
 		2F4069F61C6AE55000BEA49D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4069F41C6AE55000BEA49D /* LaunchScreen.storyboard */; };
@@ -61,6 +64,9 @@
 		2F066C371C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		2F066C3C1C6C3C7900B21596 /* mainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTableViewController.swift; sourceTree = "<group>"; };
 		2F066C3E1C6C3D2000B21596 /* mainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTableViewCell.swift; sourceTree = "<group>"; };
+		2F066C811C6DAD1B00B21596 /* ReminderList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReminderList.xcdatamodel; sourceTree = "<group>"; };
+		2F066CC01C6DB31E00B21596 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		2F066CC21C6DB70400B21596 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		2F4069E81C6AE55000BEA49D /* Deliberate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deliberate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F4069EB1C6AE55000BEA49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F4069F01C6AE55000BEA49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 		2F066C2A1C6B88AD00B21596 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2F066C801C6DAD1B00B21596 /* ReminderList.xcdatamodeld */,
+				2F066CC01C6DB31E00B21596 /* Reminder.swift */,
+				2F066CC21C6DB70400B21596 /* CoreDataController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -424,9 +433,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F066CC11C6DB31E00B21596 /* Reminder.swift in Sources */,
 				2F066C381C6C33CA00B21596 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2F4639A01C6B4AED00A59EBB /* TabBarViewController.swift in Sources */,
 				2F066C3D1C6C3C7900B21596 /* mainTableViewController.swift in Sources */,
+				2F066C821C6DAD1B00B21596 /* ReminderList.xcdatamodeld in Sources */,
 				2F4639A41C6B508400A59EBB /* SiPreviewViewController.swift in Sources */,
 				2F066C3B1C6C33CA00B21596 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2F46399C1C6B2E8E00A59EBB /* MenuViewController.swift in Sources */,
@@ -436,6 +447,7 @@
 				2F4639991C6B250800A59EBB /* MainViewController.swift in Sources */,
 				2F4639A81C6B50AC00A59EBB /* RenViewController.swift in Sources */,
 				2F066C3A1C6C33CA00B21596 /* TPKeyboardAvoidingTableView.m in Sources */,
+				2F066CC31C6DB70400B21596 /* CoreDataController.swift in Sources */,
 				2F066C3F1C6C3D2000B21596 /* mainTableViewCell.swift in Sources */,
 				2F4639A21C6B505600A59EBB /* HistoryViewController.swift in Sources */,
 				2F066C231C6B769100B21596 /* HeaderViewController.swift in Sources */,
@@ -692,6 +704,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F066C801C6DAD1B00B21596 /* ReminderList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F066C811C6DAD1B00B21596 /* ReminderList.xcdatamodel */,
+			);
+			currentVersion = 2F066C811C6DAD1B00B21596 /* ReminderList.xcdatamodel */;
+			path = ReminderList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F4069E01C6AE55000BEA49D /* Project object */;
 }
