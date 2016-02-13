@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addTextField: UITextField!
     @IBOutlet weak var fullScreenAsBtn: UIView!
     @IBOutlet weak var subScrollView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     
     override func viewDidLoad() {
@@ -56,9 +57,10 @@ class MainViewController: UIViewController {
         self.tableViewController.view = self.tableView
         
         self.delegate = self.tableViewController
+        self.scrollView.delegate = self
         
         
-        
+        self.scrollView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -124,4 +126,12 @@ class MainViewController: UIViewController {
         btn.animate()
     }
     
+}
+
+extension MainViewController: UIScrollViewDelegate{
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.view.endEditing(true)
+
+    }
 }

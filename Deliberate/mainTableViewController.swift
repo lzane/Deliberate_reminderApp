@@ -24,7 +24,7 @@ var reminderList = [Reminder]()
     override func viewWillAppear(animated: Bool) {
         //Data
         super.viewWillAppear(animated)
-        print("tableView viewWillAppear")
+
         let predicate = NSPredicate(format: " (isFinished == NO) AND (isInThought == NO)")
         reminderList = CoreDataController.fetchEntity("List", WithPredicate: predicate)!
         
@@ -65,6 +65,11 @@ var reminderList = [Reminder]()
         
         
         return cell
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.tableView.endEditing(true)
+        
     }
     
 }
