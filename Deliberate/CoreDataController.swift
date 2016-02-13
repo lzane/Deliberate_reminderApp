@@ -17,14 +17,6 @@ class CoreDataController: NSObject {
 
         let item    = NSEntityDescription.insertNewObjectForEntityForName(entity, inManagedObjectContext: context)
         
-//        var content :      String!
-//        var isFinished :   Bool!
-//        var isImportant :  Bool!
-//        var isInThought :  Bool!
-//        var timeCreat :    NSDate!
-//        var timeFinish :   NSDate!
-//        var managedObject: NSManagedObject?
-        
         item.setValue(reminder.content, forKey: "content")
         item.setValue(reminder.isFinished, forKey: "isFinished")
         item.setValue(reminder.isImportant, forKey: "isImportant")
@@ -63,6 +55,29 @@ class CoreDataController: NSObject {
         }
         return nil
     }
+    
+    class func updateObject(object: NSManagedObject, byReminder reminder:Reminder){
+        
+        let appDel  = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = appDel.managedObjectContext
+
+        object.setValue(reminder.content, forKey: "content")
+        object.setValue(reminder.isFinished, forKey: "isFinished")
+        object.setValue(reminder.isImportant, forKey: "isImportant")
+        object.setValue(reminder.isInThought, forKey: "isInThought")
+        object.setValue(reminder.timeCreat, forKey: "timeCreat")
+        object.setValue(reminder.timeFinish, forKey: "timeFinish")
+        
+        do{
+            try context.save()
+            
+        } catch {
+            print("update Error")
+        }
+
+        
+    }
+    
     
     class func deleteObject(object: NSManagedObject, inEntity entity: String){
         let appDel  = UIApplication.sharedApplication().delegate as! AppDelegate

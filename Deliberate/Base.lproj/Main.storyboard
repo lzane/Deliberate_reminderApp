@@ -197,7 +197,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrT-ZN-INp">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrT-ZN-INp" customClass="SpringButton" customModule="Spring">
                                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="32" id="fnr-aP-SCI"/>
@@ -214,12 +214,18 @@
                                                                             <include reference="fnr-aP-SCI"/>
                                                                         </mask>
                                                                     </variation>
+                                                                    <connections>
+                                                                        <action selector="priorityBtnDidClick:" destination="yOo-Cb-wSV" eventType="touchUpInside" id="yTH-Oo-AFx"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Testing 123....测试一二三" translatesAutoresizingMaskIntoConstraints="NO" id="ud1-AR-DUI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="55" y="2" width="185" height="40"/>
+                                                                    </variation>
                                                                 </textView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -7,22 +7,35 @@
 //
 
 import UIKit
+import MGSwipeTableCell
+import Spring
 
-class mainTableViewCell: UITableViewCell {
+protocol MainTableViewCellDelegate: class{
+    func mainTableViewCellDel(cell: mainTableViewCell, priorityBtnDidClick btn:SpringButton)
+}
 
-    @IBOutlet weak var priorityBTn: UIButton!
+class mainTableViewCell: MGSwipeTableCell {
+
+    @IBOutlet weak var priorityBTn: SpringButton!
     @IBOutlet weak var contentTextView: UITextView!
+    
+    weak var mydelegate: MainTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func priorityBtnDidClick(sender: AnyObject) {
+        mydelegate?.mainTableViewCellDel(self, priorityBtnDidClick: sender as! SpringButton)
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
+    
     
 
     

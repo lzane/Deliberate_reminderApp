@@ -16,7 +16,7 @@ protocol mainViewControllerDelegate: class{
 
 class MainViewController: UIViewController {
     let header = HeaderViewController()
-    let tableViewController = mainTableViewController()
+    let tableViewController = mainTableViewController(Type: "mainView")
     
     weak var delegate: mainViewControllerDelegate?
     
@@ -132,6 +132,6 @@ extension MainViewController: UIScrollViewDelegate{
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
-
     }
+    
 }
