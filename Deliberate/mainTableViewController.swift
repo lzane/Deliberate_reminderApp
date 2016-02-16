@@ -22,6 +22,8 @@ class mainTableViewController: UITableViewController {
         self.type = type
         if type == "mainView" {
             predicate = NSPredicate(format:"(isFinished == NO) AND (isInThought == NO)")
+        }else if type == "historyView" {
+            predicate = NSPredicate(format:"isFinished == YES")
         }
         
     }
@@ -39,6 +41,7 @@ class mainTableViewController: UITableViewController {
         //Data
         super.viewWillAppear(animated)
         reminderList = CoreDataController.fetchEntity("List", WithPredicate: predicate)!
+        reminderList = reminderList.reverse()
         self.tableView.reloadData()
     }
     
@@ -63,7 +66,7 @@ class mainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mainCell", forIndexPath: indexPath) as! mainTableViewCell
         
-
+        
         //backgroud color
         let isOdd = (indexPath.row % 2) == 0 ? true : false
         if isOdd {
@@ -96,29 +99,36 @@ class mainTableViewController: UITableViewController {
         cell.contentTextView.textColor = UIColor.blackColor()
         cell.priorityBTn.hidden = false
         cell.mydelegate = self
-
+        cell.contentTextView.textAlignment = NSTextAlignment.Left
+        cell.priorityBTn.userInteractionEnabled = true
         
         //swipe table view cell
         cell.delegate = self
         cell.leftSwipeSettings.transition = MGSwipeTransition.Drag
         
-        let expan           = MGSwipeExpansionSettings()
-        expan.buttonIndex   = 0
-        expan.fillOnTrigger = true
-        expan.threshold     = 1.5
-        cell.leftExpansion  = expan
-        cell.rightExpansion = expan
+        let expanL           = MGSwipeExpansionSettings()
+        expanL.buttonIndex   = 0
+        expanL.fillOnTrigger = true
+        expanL.threshold     = 1.5
         
-        //if the cell is in thought
+        let expanR           = MGSwipeExpansionSettings()
+        expanR.buttonIndex   = 0
+        expanR.fillOnTrigger = true
+        expanR.threshold     = 2
+        
+        cell.leftExpansion  = expanL
+        cell.rightExpansion = expanR
+        
+        //if the cell is in thought or finish
         if self.type == "mainView"{
             
-
             if remind.isFinished == true{
                 attribute.addAttributes([NSStrikethroughStyleAttributeName:1],range: range)
                 cell.contentTextView.attributedText = attribute
                 cell.contentTextView.textColor = UIColor.lightGrayColor()
                 cell.contentTextView.font = normalFont
                 cell.priorityBTn.hidden = true
+                cell.contentTextView.textAlignment = NSTextAlignment.Right
             }
             
             if remind.isInThought == true{
@@ -126,8 +136,13 @@ class mainTableViewController: UITableViewController {
                 cell.contentTextView.font = italicFont
                 cell.contentTextView.textColor = UIColor.lightGrayColor()
                 cell.priorityBTn.hidden = true
+                cell.contentTextView.textAlignment = NSTextAlignment.Right
             }
             
+        }else if self.type == "historyView"{
+            cell.contentTextView.textColor = UIColor.lightGrayColor()
+            cell.contentTextView.font = normalFont
+            cell.priorityBTn.userInteractionEnabled = false
         }
         
         return cell
@@ -146,6 +161,22 @@ extension mainTableViewController:mainViewControllerDelegate{
 }
 
 extension mainTableViewController:MGSwipeTableCellDelegate{
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, canSwipe direction: MGSwipeDirection, fromPoint point: CGPoint) -> Bool {
+        if self.type == "mainView"{
+            let indexPath = self.tableView.indexPathForCell(cell)!
+            let rowIndex = indexPath.row
+            let remind = reminderList[rowIndex]
+            if direction == MGSwipeDirection.LeftToRight{
+                if remind.isFinished == true || remind.isInThought == true{
+                    return false
+                }
+            }
+            
+        }
+        
+        return true
+    }
     
     //function when the swipe button trigger
     func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
@@ -167,11 +198,15 @@ extension mainTableViewController:MGSwipeTableCellDelegate{
             }
         }else {
             if index == 0 {
+                if self.type == "mainView"{
+                    remind.isInThought = true
+                    CoreDataController.updateObject(object, byReminder: remind)
+                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                    mycell.priorityBTn.hidden = true
+                }else if self.type == "historyView"{
+                    mycell.priorityBtnDidClick(mycell.priorityBTn)
+                }
                 
-                remind.isInThought = true
-                CoreDataController.updateObject(object, byReminder: remind)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-                mycell.priorityBTn.hidden = true
             }
         }
         
@@ -182,7 +217,13 @@ extension mainTableViewController:MGSwipeTableCellDelegate{
         //configure right buttons
         
         if direction == MGSwipeDirection.LeftToRight{
-            return [MGSwipeButton(title: "加入思考", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]
+            if self.type == "mainView" {
+                return [MGSwipeButton(title: "加入思考", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]
+            }else if self.type == "historyView" {
+                return [MGSwipeButton(title: "恢复", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]
+            }else{
+                return [MGSwipeButton(title: "加入思考", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]   //ATTENTION!!
+            }
         }else{
             return [MGSwipeButton(title: "删除", backgroundColor: UIColor ( red: 0.7744, green: 0.272, blue: 0.2278, alpha: 1.0 ))]
         }
@@ -202,13 +243,28 @@ extension mainTableViewController:MainTableViewCellDelegate{
         
         cell.priorityBTn.animation = "pop"
         cell.priorityBTn.animateNext { () -> () in
-            cell.priorityBTn.hidden = true
+            
+            remind.isFinished = !remind.isFinished
+            CoreDataController.updateObject(object, byReminder: remind)
+            
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            
+            if self.type == "historyView"{
+                self.viewWillAppear(true)
+            }
         }
         
-        remind.isFinished = !remind.isFinished
-        CoreDataController.updateObject(object, byReminder: remind)
         
-        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-
+        
+    }
+    
+    func mainTableViewCellDel(cell: mainTableViewCell, cellContentTextDidChanged text: String) {
+        let indexPath = self.tableView.indexPathForCell(cell)!
+        let rowIndex = indexPath.row
+        let remind = reminderList[rowIndex]
+        let object = remind.managedObject!
+        
+        remind.content = text
+        CoreDataController.updateObject(object, byReminder: remind)
     }
 }

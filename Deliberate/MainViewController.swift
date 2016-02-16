@@ -49,7 +49,14 @@ class MainViewController: UIViewController {
         self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
         self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0.0))
         self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0.0))
-
+        
+        
+        //priority button
+        self.priorityBtn.animation = "slideLeft"
+        self.priorityBtn.duration = 0
+        self.priorityBtn.animateTo()
+        
+        self.priorityBtn.selected = false
 
         //delegate
         self.tableView.delegate = tableViewController
@@ -110,7 +117,7 @@ class MainViewController: UIViewController {
         self.fullScreenAsBtn.hidden = false
         
         self.priorityBtn.animation = "slideLeft"
-        self.priorityBtn.delay = 0.2
+        self.priorityBtn.delay = 0.4
         self.priorityBtn.duration = 0.7
         self.priorityBtn.animate()
         
