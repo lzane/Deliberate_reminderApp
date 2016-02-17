@@ -37,11 +37,16 @@ class mainTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+      
     }
     
     override func viewWillAppear(animated: Bool) {
         //Data
         super.viewWillAppear(animated)
+        
+        self.tableView.estimatedRowHeight = 44
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
         reminderList = CoreDataController.fetchEntity("List", WithPredicate: predicate)!
         
         if self.type == "siView" || self.type == "historyView"{
@@ -300,5 +305,10 @@ extension mainTableViewController:MainTableViewCellDelegate{
         
         remind.content = text
         CoreDataController.updateObject(object, byReminder: remind)
+    }
+    
+    func mainTableViewCellDel(cell: mainTableViewCell, TextViewContentBeingChanged textView: UITextView) {
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
 }

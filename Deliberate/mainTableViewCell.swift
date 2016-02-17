@@ -13,7 +13,7 @@ import Spring
 protocol MainTableViewCellDelegate: class{
     func mainTableViewCellDel(cell: mainTableViewCell, priorityBtnDidClick btn:SpringButton)
     func mainTableViewCellDel(cell: mainTableViewCell, cellContentTextDidChanged text:String)
-    
+    func mainTableViewCellDel(cell: mainTableViewCell, TextViewContentBeingChanged textView:UITextView)
 }
 
 class mainTableViewCell: MGSwipeTableCell {
@@ -50,5 +50,9 @@ class mainTableViewCell: MGSwipeTableCell {
 extension mainTableViewCell: UITextViewDelegate{
     func textViewDidEndEditing(textView: UITextView) {
         self.mydelegate?.mainTableViewCellDel(self, cellContentTextDidChanged: textView.text)
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        self.mydelegate?.mainTableViewCellDel(self, TextViewContentBeingChanged: textView)
     }
 }
