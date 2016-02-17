@@ -24,6 +24,8 @@ class mainTableViewController: UITableViewController {
             predicate = NSPredicate(format:"(isFinished == NO) AND (isInThought == NO)")
         }else if type == "historyView" {
             predicate = NSPredicate(format:"isFinished == YES")
+        }else if type == "siView"{
+            predicate = NSPredicate(format:"(isInThought == YES) AND (isFinished == NO)")
         }
         
     }
@@ -41,7 +43,19 @@ class mainTableViewController: UITableViewController {
         //Data
         super.viewWillAppear(animated)
         reminderList = CoreDataController.fetchEntity("List", WithPredicate: predicate)!
-        reminderList = reminderList.reverse()
+        
+        if self.type == "siView" || self.type == "historyView"{
+            reminderList.sortInPlace { (remind1, remind2) -> Bool in
+                let result :NSComparisonResult  = remind1.timeFinish.compare(remind2.timeFinish)
+                return result == NSComparisonResult.OrderedDescending
+            }
+        }else{
+            reminderList.sortInPlace({ (remind1, remind2) -> Bool in
+                let result :NSComparisonResult  = remind1.timeCreat.compare(remind2.timeCreat)
+                return result == NSComparisonResult.OrderedAscending
+            })
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -140,7 +154,11 @@ class mainTableViewController: UITableViewController {
             }
             
         }else if self.type == "historyView"{
-            cell.contentTextView.textColor = UIColor.lightGrayColor()
+            cell.contentTextView.font = normalFont
+            cell.priorityBTn.userInteractionEnabled = false
+            
+            
+        }else if self.type == "siView"{
             cell.contentTextView.font = normalFont
             cell.priorityBTn.userInteractionEnabled = false
         }
@@ -200,10 +218,13 @@ extension mainTableViewController:MGSwipeTableCellDelegate{
             if index == 0 {
                 if self.type == "mainView"{
                     remind.isInThought = true
+                    remind.timeFinish = NSDate.init()
                     CoreDataController.updateObject(object, byReminder: remind)
                     self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
                     mycell.priorityBTn.hidden = true
                 }else if self.type == "historyView"{
+                    mycell.priorityBtnDidClick(mycell.priorityBTn)
+                }else if self.type == "siView"{
                     mycell.priorityBtnDidClick(mycell.priorityBTn)
                 }
                 
@@ -221,13 +242,15 @@ extension mainTableViewController:MGSwipeTableCellDelegate{
                 return [MGSwipeButton(title: "加入思考", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]
             }else if self.type == "historyView" {
                 return [MGSwipeButton(title: "恢复", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]
-            }else{
-                return [MGSwipeButton(title: "加入思考", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]   //ATTENTION!!
+            }else if self.type == "siView"{
+                return [MGSwipeButton(title: "完成思考", icon: UIImage(named:"check.png"), backgroundColor: UIColor ( red: 0.2421, green: 0.7965, blue: 0.4799, alpha: 1.0 )),]
             }
         }else{
             return [MGSwipeButton(title: "删除", backgroundColor: UIColor ( red: 0.7744, green: 0.272, blue: 0.2278, alpha: 1.0 ))]
         }
+     
         
+        return nil
     }
     
     
@@ -245,11 +268,22 @@ extension mainTableViewController:MainTableViewCellDelegate{
         cell.priorityBTn.animateNext { () -> () in
             
             remind.isFinished = !remind.isFinished
+            if remind.isFinished == false { // recover
+                remind.timeCreat = NSDate.init()
+                if self.type == "historyView"{
+                remind.isInThought = false
+                }
+                
+            } else { //finish
+            remind.timeFinish = NSDate.init()
+            }
+            
+            
             CoreDataController.updateObject(object, byReminder: remind)
             
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             
-            if self.type == "historyView"{
+            if self.type == "historyView" || self.type == "siView"{
                 self.viewWillAppear(true)
             }
         }
