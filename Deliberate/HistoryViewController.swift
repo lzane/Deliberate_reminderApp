@@ -63,6 +63,14 @@ class HistoryViewController: UIViewController {
     }
 
     @IBAction func deleteBtnDidClick(sender: AnyObject) {
+        let alert = UIActionSheet.init(title: "确定删除", delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: "确定")
+        alert.showInView(self.view)
+    }
+}
+
+extension HistoryViewController: UIActionSheetDelegate{
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         let reminderList = self.tableViewController.reminderList
         for unit in reminderList{
             CoreDataController.deleteObject(unit.managedObject!, inEntity: "List")
@@ -70,7 +78,6 @@ class HistoryViewController: UIViewController {
         self.tableViewController.viewWillAppear(true)
     }
 }
-
 
 extension HistoryViewController: UIScrollViewDelegate{
     

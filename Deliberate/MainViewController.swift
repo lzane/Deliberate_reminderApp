@@ -117,7 +117,8 @@ class MainViewController: UIViewController {
         self.fullScreenAsBtn.hidden = false
         
         self.priorityBtn.animation = "slideLeft"
-        self.priorityBtn.delay = 0.4
+        self.priorityBtn.curve = "spring"
+        self.priorityBtn.delay = 0.2
         self.priorityBtn.duration = 0.7
         self.priorityBtn.animate()
         

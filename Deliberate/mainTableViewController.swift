@@ -91,7 +91,7 @@ class mainTableViewController: UITableViewController {
         if isOdd {
             cell.backgroundColor = UIColor ( red: 0.8114, green: 0.8116, blue: 0.8114, alpha: 0.35 )
         }else{
-            cell.backgroundColor = UIColor.clearColor()
+            cell.backgroundColor = UIColor ( red: 0.9043, green: 0.9043, blue: 0.9043, alpha: 0.35 )
         }
         
         //content
