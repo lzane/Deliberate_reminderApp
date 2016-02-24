@@ -12,7 +12,7 @@ class SiViewController: UIViewController {
 
     let header = HeaderViewController()
     let tableViewController = mainTableViewController(Type: "siView")
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subScrollView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -44,8 +44,7 @@ class SiViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.view.bringSubviewToFront(header.view)
-        
-         self.tableViewController.viewWillAppear(animated)
+        self.tableViewController.viewWillAppear(animated)
         
     }
     
@@ -53,12 +52,20 @@ class SiViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func si_PreViewBtnDidClick(sender: AnyObject) {
+        self.performSegueWithIdentifier("si_Preview", sender: self)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "menuSegue"{
             let menuCV = segue.destinationViewController as! MenuViewController
             menuCV.delegate = self.tabBarController as! TabBarViewController
+        }else if segue.identifier == "si_Preview"{
+            let siPreViewVC = segue.destinationViewController as! SiPreviewViewController
+            siPreViewVC.reminderList = self.tableViewController.reminderList
         }
+        
+        
     }
 
 }

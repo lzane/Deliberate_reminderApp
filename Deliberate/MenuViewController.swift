@@ -16,10 +16,18 @@ class MenuViewController: UIViewController {
     
     weak var delegate: MenuViewControllerDelegate?
     
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+             // Put it somewhere, give it a frame...
+        UIView.animateWithDuration(0.5) {
+            self.blurEffectView.effect = UIBlurEffect(style: .Light)
+        }
+        
         // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

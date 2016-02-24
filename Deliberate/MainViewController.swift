@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var fullScreenAsBtn: UIView!
     @IBOutlet weak var subScrollView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var plusBtn: UIButton!
 
     
     override func viewDidLoad() {
@@ -45,7 +46,7 @@ class MainViewController: UIViewController {
         //Fix autolayout Problem
         header.view.translatesAutoresizingMaskIntoConstraints = false ;
 
-        self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute:NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
         self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
         self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: 0.0))
         self.subScrollView.addConstraint(NSLayoutConstraint(item: header.view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.subScrollView, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 0.0))
@@ -134,6 +135,12 @@ class MainViewController: UIViewController {
         btn.animate()
     }
     
+    @IBAction func plusBtnDidClick(sender: AnyObject) {
+        let button = sender as! SpringButton
+        button.animation = "morph"
+        button.animate()
+        self.addTextField.becomeFirstResponder()
+    }
 }
 
 extension MainViewController: UIScrollViewDelegate{
