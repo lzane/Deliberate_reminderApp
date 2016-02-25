@@ -71,11 +71,13 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UIActionSheetDelegate{
     
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 0 {
         let reminderList = self.tableViewController.reminderList
         for unit in reminderList{
             CoreDataController.deleteObject(unit.managedObject!, inEntity: "List")
         }
         self.tableViewController.viewWillAppear(true)
+        }
     }
 }
 
