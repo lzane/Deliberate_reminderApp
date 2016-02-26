@@ -213,7 +213,7 @@ extension mainTableViewController:MGSwipeTableCellDelegate{
         //the delete Btn
         if direction == MGSwipeDirection.RightToLeft{
             if index == 0 {
-                
+                self.view.endEditing(true)
                 reminderList.removeAtIndex(rowIndex)
                 CoreDataController.deleteObject(object, inEntity: "List")
                 self.tableView.reloadData()
